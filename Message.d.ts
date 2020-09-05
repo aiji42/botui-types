@@ -22,5 +22,5 @@ export interface Message {
   iconDisplay?: boolean
   content: Content
   completed: boolean
-  updated?: boolean
+  updated: boolean
 }
