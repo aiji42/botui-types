@@ -1,4 +1,4 @@
-import { SelectHTMLAttributes, OptionHTMLAttributes, TextareaHTMLAttributes } from 'react'
+import { SelectHTMLAttributes, OptionHTMLAttributes, TextareaHTMLAttributes, InputHTMLAttributes } from 'react'
 import { Validation } from './Validation'
 
 interface FormBase<Type extends string, Values extends {}>{
