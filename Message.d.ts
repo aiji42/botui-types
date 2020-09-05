@@ -4,6 +4,8 @@ import { Form as FormType } from './Form'
 export interface ContentForm {
   type: 'form'
   props: FormType
+  before: string
+  after: string
 }
 
 export interface StringType extends HTMLAttributes<HTMLSpanElement> { }
