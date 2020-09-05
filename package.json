@@ -8,6 +8,9 @@
   "types": "index.d.ts",
   "repository": "aiji42/botui-types",
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "@types/react": "*",
+    "@types/yup": "*"
+  },
   "typeScriptVersion": "3.9"
 }
