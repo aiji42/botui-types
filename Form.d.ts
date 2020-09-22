@@ -1,9 +1,10 @@
 import { SelectHTMLAttributes, OptionHTMLAttributes, TextareaHTMLAttributes, InputHTMLAttributes } from 'react'
 import { Validation } from './Validation'
 
-interface FormBase<Type extends string, Values extends {}>{
+interface FormBase<Type extends string, Values extends {}, Status extends {}>{
   type: Type
   values: Values
+  status: Status
   onSubmited: (parm: any) => void
 }
 
@@ -19,7 +20,7 @@ export interface FormAddress extends FormBase<'FormAddress', {
   pref?: string | number
   city?: string
   street?: string | number
-}> { }
+}, { }> { }
 
 export interface FormBirthDayValues {
   birthdayYear: string | number
@@ -31,7 +32,7 @@ export interface FormBirthDay extends FormBase<'FormBirthDay', {
   birthdayYear?: string | number
   birthdayMonth?: string | number
   birthdayDay?: string | number
-}> { }
+}, { }> { }
 
 export interface FormEmailValues {
   email: string
@@ -39,7 +40,7 @@ export interface FormEmailValues {
 
 export interface FormEmail extends FormBase<'FormEmail', {
   email?: string
-}> { }
+}, { }> { }
 
 export interface FormNameValues {
   familyName: string
@@ -53,6 +54,9 @@ export interface FormName extends FormBase<'FormName', {
   familyNameKana?: string
   firstName?: string
   firstNameKana?: string
+}, {
+  kana?: boolean
+  kanaType?: 'hiragana' | 'katakana'
 }> { }
 
 export interface FormTelValues {
@@ -61,7 +65,7 @@ export interface FormTelValues {
 
 export interface FormTel extends FormBase<'FormTel', {
   tel?: string | number
-}> { }
+}, { }> { }
 
 export interface FormCreditCardValues {
   creditCardNumber: string | number
@@ -77,7 +81,7 @@ export interface FormCreditCard extends FormBase<'FormCreditCard', {
   creditCardExpiryMonth?: string | number
   creditCardName?: string | number
   creditCardCvc?: string | number
-}> { }
+}, { }> { }
 
 interface CustomRadio extends InputHTMLAttributes<HTMLInputElement> {
   name: string
@@ -88,7 +92,7 @@ export interface FormCustomRadioGroupValues {
   [x: string]: number | string | boolean
 }
 
-export interface FormCustomRadioGroup extends FormBase<'FormCustomRadioGroup', FormCustomRadioGroupValues> {
+export interface FormCustomRadioGroup extends FormBase<'FormCustomRadioGroup', FormCustomRadioGroupValues, { }> {
   name: string
   inputs: Array<CustomRadio>
   validation?: Validation
@@ -105,7 +109,7 @@ export interface FormCustomSelectValues {
   [x: string]: number | string
 }
 
-export interface FormCustomSelect extends FormBase<'FormCustomSelect', FormCustomSelectValues> {
+export interface FormCustomSelect extends FormBase<'FormCustomSelect', FormCustomSelectValues, { }> {
   selects: Array<CustomSelect>
 }
 
@@ -120,7 +124,7 @@ export interface FormCustomInputValues {
   [x: string]: number | string
 }
 
-export interface FormCustomInput extends FormBase<'FormCustomInput', FormCustomInputValues> {
+export interface FormCustomInput extends FormBase<'FormCustomInput', FormCustomInputValues, { }> {
   inputs: Array<CustomInput>
 }
 
@@ -128,7 +132,7 @@ export interface FormCustomTextareaValues {
   [x: string]: string
 }
 
-export interface FormCustomTextarea extends FormBase<'FormCustomTextarea', FormCustomTextareaValues>, TextareaHTMLAttributes<HTMLTextAreaElement>{
+export interface FormCustomTextarea extends FormBase<'FormCustomTextarea', FormCustomTextareaValues, { }>, TextareaHTMLAttributes<HTMLTextAreaElement>{
   name: string
   title?: string
   validation?: Validation
@@ -141,7 +145,7 @@ export interface FormConfirmValues {
 
 export interface FormConfirm extends FormBase<'FormConfirm', {
   confirmHTML: string
-}> {}
+}, { }> { }
 
 export type Form = FormAddress | FormBirthDay | FormConfirm | FormCreditCard | FormCustomInput | FormCustomSelect
   | FormCustomRadioGroup | FormCustomTextarea | FormEmail | FormName | FormTel
