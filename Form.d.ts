@@ -10,16 +10,20 @@ interface FormBase<Type extends string, Values extends {}, Status extends {}>{
 
 export interface FormAddressValues {
   postalCode: string | number
-  pref: string | number
+  prefecture: string
+  prefectureId: number | string
   city: string
   street: string | number
+  building: string
 }
 
 export interface FormAddress extends FormBase<'FormAddress', {
   postalCode?: string | number
-  pref?: string | number
+  prefecture?: string
+  prefectureId?: number | string
   city?: string
   street?: string | number
+  building?: string
 }, { }> { }
 
 export interface FormBirthDayValues {
