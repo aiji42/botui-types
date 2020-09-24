@@ -90,7 +90,6 @@ export interface FormCreditCard extends FormBase<'FormCreditCard', {
 }, {}> { }
 
 interface CustomRadio extends InputHTMLAttributes<HTMLInputElement> {
-  name: string
   title: string
 }
 
@@ -101,14 +100,12 @@ export interface FormCustomRadioGroupValues {
 export interface FormCustomRadioGroup extends FormBase<'FormCustomRadioGroup', FormCustomRadioGroupValues, {}> {
   name: string
   inputs: Array<CustomRadio>
-  validation?: Validation
 }
 
 interface CustomSelect extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string
   title?: string
   options: OptionHTMLAttributes<HTMLOptionElement>[]
-  validation?: Validation
 }
 
 export interface FormCustomSelectValues {
