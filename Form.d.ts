@@ -1,5 +1,4 @@
 import { SelectHTMLAttributes, OptionHTMLAttributes, TextareaHTMLAttributes, InputHTMLAttributes } from 'react'
-import { Validation } from './Validation'
 
 interface FormBase<Type extends string, Values extends {}, Status extends {}> {
   type: Type
@@ -118,9 +117,9 @@ export interface FormCustomSelect extends FormBase<'FormCustomSelect', FormCusto
 
 interface CustomInput extends InputHTMLAttributes<HTMLIFrameElement> {
   name: string
-  type?: 'text' | 'number' | 'tel'
+  type?: 'text' | 'number' | 'tel' | 'password' | 'email'
   title?: string
-  validation?: Validation
+  validation?: string
 }
 
 export interface FormCustomInputValues {
@@ -138,7 +137,7 @@ export interface FormCustomTextareaValues {
 export interface FormCustomTextarea extends FormBase<'FormCustomTextarea', FormCustomTextareaValues, {}>, TextareaHTMLAttributes<HTMLTextAreaElement> {
   name: string
   title?: string
-  validation?: Validation
+  validation?: string
 }
 
 export interface FormConfirmValues {
