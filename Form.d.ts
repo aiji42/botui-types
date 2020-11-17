@@ -16,14 +16,7 @@ export interface FormAddressValues {
   building: string
 }
 
-export interface FormAddress extends FormBase<'FormAddress', {
-  postalCode?: string | number
-  prefecture?: string
-  prefectureId?: number | string
-  city?: string
-  street?: string | number
-  building?: string
-}, {}> { }
+export interface FormAddress extends FormBase<'FormAddress', Partial<FormAddressValues>, {}> { }
 
 export interface FormBirthDayValues {
   birthdayYear: string | number
@@ -31,11 +24,7 @@ export interface FormBirthDayValues {
   birthdayDay: string | number
 }
 
-export interface FormBirthDay extends FormBase<'FormBirthDay', {
-  birthdayYear?: string | number
-  birthdayMonth?: string | number
-  birthdayDay?: string | number
-}, {
+export interface FormBirthDay extends FormBase<'FormBirthDay', Partial<FormBirthDayValues>, {
   paddingZero?: boolean
 }> { }
 
@@ -43,9 +32,7 @@ export interface FormEmailValues {
   email: string
 }
 
-export interface FormEmail extends FormBase<'FormEmail', {
-  email?: string
-}, {}> { }
+export interface FormEmail extends FormBase<'FormEmail', Partial<FormEmailValues>, {}> { }
 
 export interface FormNameValues {
   familyName: string
@@ -54,12 +41,7 @@ export interface FormNameValues {
   firstNameKana: string
 }
 
-export interface FormName extends FormBase<'FormName', {
-  familyName?: string
-  familyNameKana?: string
-  firstName?: string
-  firstNameKana?: string
-}, {
+export interface FormName extends FormBase<'FormName', Partial<FormNameValues>, {
   kana?: boolean
   kanaType?: 'hiragana' | 'katakana'
 }> { }
@@ -68,9 +50,7 @@ export interface FormTelValues {
   tel: string | number
 }
 
-export interface FormTel extends FormBase<'FormTel', {
-  tel?: string | number
-}, {}> { }
+export interface FormTel extends FormBase<'FormTel', Partial<FormTelValues>, {}> { }
 
 export interface FormCreditCardValues {
   creditCardNumber: string | number
@@ -80,13 +60,7 @@ export interface FormCreditCardValues {
   creditCardCvc: string | number
 }
 
-export interface FormCreditCard extends FormBase<'FormCreditCard', {
-  creditCardNumber?: string | number
-  creditCardExpiryYear?: string | number
-  creditCardExpiryMonth?: string | number
-  creditCardName?: string | number
-  creditCardCvc?: string | number
-}, {}> { }
+export interface FormCreditCard extends FormBase<'FormCreditCard', Partial<FormCreditCardValues>, {}> { }
 
 interface CustomRadio extends InputHTMLAttributes<HTMLInputElement> {
   title: string
@@ -99,6 +73,20 @@ export interface FormCustomRadioGroupValues {
 export interface FormCustomRadioGroup extends FormBase<'FormCustomRadioGroup', FormCustomRadioGroupValues, {}> {
   name: string
   inputs: Array<CustomRadio>
+}
+
+interface CustomCheckbox extends InputHTMLAttributes<HTMLInputElement> {
+  title: string
+}
+
+export interface FormCustomCheckboxValues {
+  [x: string]: number | string | boolean
+}
+
+export interface FormCustomCheckbox extends FormBase<'FormCustomRadioGroup', FormCustomCheckboxValues, {}> {
+  name: string
+  inputs: Array<CustomCheckbox>
+  required?: boolean
 }
 
 interface CustomSelect extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -145,9 +133,7 @@ export interface FormConfirmValues {
   confirmHTML: string
 }
 
-export interface FormConfirm extends FormBase<'FormConfirm', {
-  confirmHTML: string
-}, {}> { }
+export interface FormConfirm extends FormBase<'FormConfirm', Partial<FormConfirmValues>, {}> { }
 
 export type Form = FormAddress | FormBirthDay | FormConfirm | FormCreditCard | FormCustomInput | FormCustomSelect
-  | FormCustomRadioGroup | FormCustomTextarea | FormEmail | FormName | FormTel
+  | FormCustomCheckbox | FormCustomRadioGroup | FormCustomTextarea | FormEmail | FormName | FormTel
