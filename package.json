@@ -1,6 +1,6 @@
 {
   "name": "@botui/types",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "TypeScript definitions for @botui project",
   "author": "aiji42",
   "license": "MIT",
