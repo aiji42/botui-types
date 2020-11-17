@@ -83,7 +83,7 @@ export interface FormCustomCheckboxValues {
   [x: string]: number | string | boolean
 }
 
-export interface FormCustomCheckbox extends FormBase<'FormCustomRadioGroup', FormCustomCheckboxValues, {}> {
+export interface FormCustomCheckbox extends FormBase<'FormCustomCheckbox', FormCustomCheckboxValues, {}> {
   name: string
   inputs: Array<CustomCheckbox>
   required?: boolean
