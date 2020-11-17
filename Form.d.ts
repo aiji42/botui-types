@@ -86,6 +86,7 @@ export interface FormCustomCheckboxValues {
 export interface FormCustomCheckbox extends FormBase<'FormCustomRadioGroup', FormCustomCheckboxValues, {}> {
   name: string
   inputs: Array<CustomCheckbox>
+  required?: boolean
 }
 
 interface CustomSelect extends SelectHTMLAttributes<HTMLSelectElement> {
