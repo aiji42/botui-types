@@ -4,7 +4,7 @@ interface FormBase<Type extends string, Values extends {}, Status extends {}> {
   type: Type
   values: Values
   status: Status
-  onSubmited: (parm: any) => void
+  onSubmitted: (parm: any) => void
 }
 
 export interface FormAddressValues {

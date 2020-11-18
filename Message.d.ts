@@ -4,20 +4,27 @@ import { Form as FormType } from './Form'
 export interface ContentForm {
   type: 'form'
   props: FormType
-  before: string
-  after: string
 }
 
 export interface StringType extends HTMLAttributes<HTMLSpanElement> { }
+
+export interface ImageType {
+  imgKey: string
+}
 
 export interface ContentString {
   type: 'string'
   props: StringType
 }
 
+export interface ContentImage {
+  type: 'image'
+  props: ImageType
+}
+
 export type Content = {
   delay?: number
-} & (ContentForm | ContentString)
+} & (ContentForm | ContentImage | ContentString)
 
 export interface Message {
   human: boolean
@@ -26,3 +33,4 @@ export interface Message {
   completed: boolean
   updated: boolean
 }
+
